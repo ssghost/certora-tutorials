@@ -10,8 +10,8 @@
 		By adding a precondition we can verify this rule.
 		run:
 
-		certoraRun BankFixed.sol:Bank --verify Bank:TotalGreaterThanUser.spec --solc solc7.6 --rule totalFundsAfterDepositWithPrecondition
-
+		certoraRun BankFixed.sol:Bank --verify Bank:TotalGreaterThanUser.spec --solc solc7.6 --rule totalFundsAfterDepositWithPrecondition 
+		
 **/
 
 
