@@ -24,9 +24,9 @@ certoraRun BankLesson1/Bank.sol:Bank --verify Bank:BankLesson1/IntegrityOfDeposi
 
 </br>
 
-- [ ] Open the shell script [verifyIntegrityOfDeposit](verifyIntegrityOfDeposit.sh) and read it. Make sure that you understand each line, and that you are familiar with every flag.
+- [x] Open the shell script [verifyIntegrityOfDeposit](verifyIntegrityOfDeposit.sh) and read it. Make sure that you understand each line, and that you are familiar with every flag.
 
-  - [ ] Do you recognize this run command? This is basically the first run in BankLesson1.
+  - [x] Do you recognize this run command? This is basically the first run in BankLesson1.
 
 </br>
 
@@ -34,7 +34,7 @@ certoraRun BankLesson1/Bank.sol:Bank --verify Bank:BankLesson1/IntegrityOfDeposi
 
 </br>
 
-- [ ] In your VSCode terminal change directory to `Certora-OnBoarding/01.Lesson_GettingStarted`, and execute the script: 
+- [x] In your VSCode terminal change directory to `Certora-OnBoarding/01.Lesson_GettingStarted`, and execute the script: 
 
 ``` sh
 sh  RunScriptExample/verifyIntegrityOfDeposit.sh "This is a run executed through a shell script"
@@ -54,11 +54,11 @@ sh  RunScriptExample/verifyIntegrityOfDeposit.sh "This is a run executed through
 
 </br>
 
-- [ ] Create a script that runs the entire `TotalGreaterThanUser.spec` specification file with solidity compiler 7.5 and a message string "My first Certora shell script". Save the script in `RunScriptExample` with the name "myOwnVerificationScript1" and execute the script.
+- [x] Create a script that runs the entire `TotalGreaterThanUser.spec` specification file with solidity compiler 7.5 and a message string "My first Certora shell script". Save the script in `RunScriptExample` with the name "myOwnVerificationScript1" and execute the script.
 
 </br>
 
-- [ ] Create a script that runs the rule `validityOfTotalFundsWithVars` in `Parametric.spec` specification file with solidity compiler 7.0 and a message of your choice taken as an input. Save the script in `RunScriptExample` with the name "myOwnVerificationScript2" and execute the script.
+- [x] Create a script that runs the rule `validityOfTotalFundsWithVars` in `Parametric.spec` specification file with solidity compiler 7.0 and a message of your choice taken as an input. Save the script in `RunScriptExample` with the name "myOwnVerificationScript2" and execute the script.
 
  </br>
 
