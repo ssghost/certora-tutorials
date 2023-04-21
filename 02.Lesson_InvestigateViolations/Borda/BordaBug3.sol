@@ -1,4 +1,4 @@
-pragma solidity ^0.7.0;
+pragma solidity ^0.8.0;
 library SafeMath {
 	function safeAdd(uint256 a, uint256 b) internal pure returns (uint256) {
         uint256 c = a + b;
@@ -96,7 +96,7 @@ contract Borda is IBorda {
     }
 
     function voteTo(address contender, uint256 points) private {
-        uint256 contender_points = _contenders[contender].points + points;
+        uint256 contender_points = _contenders[contender].points.safeAdd(points); // + -> safeAdd(), should use safeAdd to prevent overflow.
         _contenders[contender].points = contender_points;
         if (contender_points > pointsOfWinner) {
             winner = contender;

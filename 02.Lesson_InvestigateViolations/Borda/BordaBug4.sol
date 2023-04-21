@@ -1,4 +1,4 @@
-pragma solidity ^0.7.0;
+pragma solidity ^0.8.0;
 library SafeMath {
 	function safeAdd(uint256 a, uint256 b) internal pure returns (uint256) {
         uint256 c = a + b;
@@ -91,7 +91,7 @@ contract Borda is IBorda {
         voteTo(first, 3);
         voteTo(second, 2);
         voteTo(third, 1);
-        _voters[msg.sender].registered = false;
+        //_voters[msg.sender].registered = false; -> deleted, should not change the registered state after voting.
         return true;
     }
 

@@ -1,4 +1,4 @@
-pragma solidity ^0.7.0;
+pragma solidity ^0.8.0;
 library SafeMath {
 	function safeAdd(uint256 a, uint256 b) internal pure returns (uint256) {
         uint256 c = a + b;
@@ -60,13 +60,13 @@ contract Borda is IBorda {
     }
 
     function registerVoter(uint8 age) external override returns (bool) {
-        require (!_contenders[msg.sender].registered, "you are already registered");
+        require (!_voters[msg.sender].registered, "you are already registered"); // contenders -> voters, voters registered state should be extracted from voters struct.
         _voters[msg.sender] = Voters({age: age, registered: true, voted: false, vote_attempts: 0, black_listed: false});
         return true;
     }
 
     function registerContender(uint8 age) external override returns (bool) {
-        require (!_contenders[msg.sender].registered, "you are already registered");
+        require (!_contenders[msg.sender].registered, "you are already registered"); 
         _contenders[msg.sender] = Contenders({age: age, registered: true, points: 0});
         return true;
     }
