@@ -274,6 +274,10 @@ contract ERC20 is IERC20, IERC20Metadata {
         _beforeTokenTransfer(sender, recipient, amount);
 
         uint256 senderBalance = _balances[sender];
+        require(
+            senderBalance >= amount,
+            "ERC20: transfer amount exceeds balance"
+        ); //a require statement should be added to make sure sender has enough balance to be sent.
         unchecked {
             _balances[sender] = senderBalance - amount;
         }
