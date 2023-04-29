@@ -331,7 +331,6 @@ contract ERC20 is IERC20, IERC20Metadata {
             _balances[account] = accountBalance - amount;
         }
         _totalSupply -= amount;
-
         emit Transfer(account, address(0), amount);
 
         _afterTokenTransfer(account, address(0), amount);
