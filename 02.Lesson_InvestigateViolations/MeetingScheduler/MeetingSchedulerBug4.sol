@@ -1,4 +1,4 @@
-pragma solidity ^0.8.7;
+pragma solidity ^0.8.0;
 
 import "./IMeetingScheduler.sol";
 
@@ -124,6 +124,6 @@ contract MeetingScheduler is IMeetingScheduler {
             "can only join to a meeting that has started"
         );
         meetings[meetingId].numOfParticipants++;
-        meetings[meetingId].status = MeetingStatus.ENDED;
+        //meetings[meetingId].status = MeetingStatus.ENDED; this is useless.
     }
 }

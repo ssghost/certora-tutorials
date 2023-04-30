@@ -1,4 +1,4 @@
-pragma solidity ^0.8.7;
+pragma solidity ^0.8.0;
 
 import "./IMeetingScheduler.sol";
 
@@ -96,24 +96,34 @@ contract MeetingScheduler is IMeetingScheduler {
         require(msg.sender == scheduledMeeting.organizer,
                 "only the organizer of a meeting can cancel it"
         );
+        //require(
+        //    scheduledMeeting.status != MeetingStatus.STARTED,
+        //    "can't end a meeting if not started"
+        //); Delete this because no more need to check it.
         require(
-            scheduledMeeting.status == MeetingStatus.STARTED,
-            "can't end a meeting if not started"
-        );
-        meetings[meetingId].status = MeetingStatus.ENDED;
+            scheduledMeeting.status == MeetingStatus.PENDING,
+            "meetings can be cancelled only if it's currently pending"
+        ); //add new requirement of Checking Pending status.
+        meetings[meetingId].status = MeetingStatus.CANCELLED;
+        //ENDED -> CANCELLED; 
     }
 
     function endMeeting(uint256 meetingId) external override {
         ScheduledMeeting memory scheduledMeeting = meetings[meetingId];
+        //require(
+        //    scheduledMeeting.status == MeetingStatus.PENDING,
+        //    "meetings can be cancelled only if it's currently pending"
+        //);
         require(
-            scheduledMeeting.status == MeetingStatus.PENDING,
-            "meetings can be cancelled only if it's currently pending"
-        );
+            scheduledMeeting.status == MeetingStatus.STARTED,
+            "can't end a meeting if not started"
+        ); // Add new requirements of checking started status.
         require(
             block.timestamp >= scheduledMeeting.endTime,
             "meeting cannot be ended unless its end time passed"
         );
-        meetings[meetingId].status = MeetingStatus.CANCELLED;
+        meetings[meetingId].status = MeetingStatus.ENDED;
+        //CANCELLED -> ENDED.
     }
 
     function joinMeeting(uint256 meetingId) external override {

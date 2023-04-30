@@ -1,4 +1,4 @@
-pragma solidity ^0.8.7;
+pragma solidity ^0.8.0;
 
 import "./IMeetingScheduler.sol";
 
@@ -84,6 +84,10 @@ contract MeetingScheduler is IMeetingScheduler {
             block.timestamp < scheduledMeeting.endTime,
             "can't start a meeting after its end time"
         );
+        require(
+            block.timestamp >= scheduledMeeting.startTime,
+            "meeting can't start in the past"
+        ); //make sure meeting is scheduled to start at present or in the future.
         meetings[meetingId].status = MeetingStatus.STARTED;
     }
 

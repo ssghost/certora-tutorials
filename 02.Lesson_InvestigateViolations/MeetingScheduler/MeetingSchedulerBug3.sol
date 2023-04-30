@@ -1,4 +1,4 @@
-pragma solidity ^0.8.7;
+pragma solidity ^0.8.0;
 
 import "./IMeetingScheduler.sol";
 
@@ -64,7 +64,7 @@ contract MeetingScheduler is IMeetingScheduler {
             startTime > block.timestamp,
             "invalid start time, meeting has to be scheduled in the future"
         );
-        require(endTime >= startTime, "meeting has to end after it starts");
+        require(endTime > startTime, "meeting has to end after it starts"); // startTime and endTime should not be equal.
         meetings[meetingId] = ScheduledMeeting({
             startTime: startTime,
             endTime: endTime,
