@@ -1,0 +1,13 @@
+;z3 solver language script
+(declare-const p Bool)
+(declare-const q Bool)
+(push)
+(define-fun f () Bool
+    (= (= (and p q) p) 
+        (=> p q))
+)
+(assert (not f))
+(check-sat)
+(pop)
+
+;unsat

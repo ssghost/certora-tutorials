@@ -1,0 +1,21 @@
+;z3 solver language script
+(declare-const a Int)
+(declare-const b Int)
+(declare-const c Int)
+(push)
+(assert (= (+ a a) 10))
+(assert (= (+ (* a b) b) 12))
+(assert (= (- (* a b) (* a c)) a))
+(check-sat)
+(get-model)
+(pop)
+
+;sat
+;(
+;  (define-fun b () Int
+;    2)
+;  (define-fun a () Int
+;    5)
+;  (define-fun c () Int
+;    1)
+;)
